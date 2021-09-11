@@ -1,0 +1,43 @@
+version: "3"
+services:
+  db:
+    build:
+      context: .
+      dockerfile: db.Dockerfile
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: dbname
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 1234
+    ports:
+      - 3306:3306
+  api:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3010:3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: "development"
+      DB_USERNAME: test
+      DB_PASSWORD: 1234
+      DB_DATABASE: dbname
+      DB_HOSTNAME: db
+      DB_DIALECT: mysql
+      POOL_MAX: 10
+      POOL_MIN: 0
+      POOL_ACQUIRE: 30000
+      POOL_IDLE: 10000
+    depends_on:
+      - db
+    command: ["./wait-for-db.sh", "db:3306", "--", "sh", "./dev-start.sh"]
+
+volumes:
+  db_data:
