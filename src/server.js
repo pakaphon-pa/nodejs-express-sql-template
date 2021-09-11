@@ -26,3 +26,6 @@ app.get("/healthz", (req, res) => {
 app.listen(constant.PORT, () => {
   Logger.info(`Server is running @ PORT ${constant.PORT}`);
 });
+
+const server = require("http").Server(app);
+export { app, server };
