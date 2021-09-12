@@ -28,4 +28,5 @@ app.listen(constant.PORT, () => {
 });
 
 const server = require("http").Server(app);
+
 export { app, server };

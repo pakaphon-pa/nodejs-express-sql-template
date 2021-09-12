@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "babel-node ./src/server.js",
     "start:dev": "nodemon",
-    "test": "cross-env  NODE_ENV=test  mocha --require @babel/register 'test/**/*.js' --exit"
+    "test": "cross-env  NODE_ENV=test  mocha --require @babel/register 'test/**/*.js' --exit",
+    "clean": "rm -rf build && mkdir build",
+    "build": "babel -d ./build ./src --copy-files",
+    "prod": "node ./build/server.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.4",
