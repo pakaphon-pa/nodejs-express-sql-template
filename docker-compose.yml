@@ -28,9 +28,10 @@ services:
       NODE_ENV: "development"
       DB_USERNAME: test
       DB_PASSWORD: 1234
-      DB_DATABASE: dbname
+      DB_DATABASENAME: dbname
       DB_HOSTNAME: db
       DB_DIALECT: mysql
+      DB_PORT: 3306
       POOL_MAX: 10
       POOL_MIN: 0
       POOL_ACQUIRE: 30000

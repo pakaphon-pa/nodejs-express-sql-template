@@ -9,7 +9,8 @@
     "test": "cross-env  NODE_ENV=test  mocha --require @babel/register 'test/**/*.js' --exit",
     "clean": "rm -rf build && mkdir build",
     "build": "babel -d ./build ./src --copy-files",
-    "prod": "node ./build/server.js"
+    "prod": "node ./build/server.js",
+    "db:migrate": "sequelize db:migrate"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.4",

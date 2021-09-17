@@ -6,6 +6,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 import requestLogs from "./middlewares/requestLogs";
+import routers from "./routes";
 
 const app = express();
 
@@ -18,12 +19,15 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false, limit: "50mb" }));
 app.use(bodyParser.json());
 
+app.use("api/v1", routers);
+
 app.get("/healthz", (req, res) => {
   Logger.info("OK !!!");
   res.status(200).send("OK !!!");
 });
 
 app.listen(constant.PORT, () => {
+  Logger.info(process.env.DB_HOSTNAME);
   Logger.info(`Server is running @ PORT ${constant.PORT}`);
 });
 

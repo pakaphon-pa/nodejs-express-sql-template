@@ -1,11 +1,11 @@
-node_modules
-yarn-debug.log
-db.Dockerfile
-db
-db_data
-Dockerfile
-docker-compose
-.dockerignore
-.git
-.gitignore
-.vscode
+# node_modules
+# yarn-debug.log
+# db.Dockerfile
+# db
+# db_data
+# Dockerfile
+# docker-compose
+# .dockerignore
+# .git
+# .gitignore
+# .vscode

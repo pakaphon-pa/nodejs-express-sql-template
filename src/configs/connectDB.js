@@ -3,7 +3,7 @@ import Logger from "./logger";
 import constant from "./constant";
 
 export default new Sequelize(
-  constant.DB_DATABASE,
+  constant.DB_DATABASENAME,
   constant.DB_USERNAME,
   constant.DB_PASSWORD,
   {
