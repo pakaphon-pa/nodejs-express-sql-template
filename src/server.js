@@ -27,7 +27,6 @@ app.get("/healthz", (req, res) => {
 });
 
 app.listen(constant.PORT, () => {
-  Logger.info(process.env.DB_HOSTNAME);
   Logger.info(`Server is running @ PORT ${constant.PORT}`);
 });
 
